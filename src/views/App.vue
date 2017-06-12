@@ -1,8 +1,10 @@
 <template>
 <div class="app">
-    <img :src="logo" class="logo">
-    <tabs></tabs>
-    <router-view></router-view>
+    <div class="content">
+        <img v-lazy="logo" class="logo pure-img">
+        <tabs></tabs>
+        <router-view></router-view>
+    </div>
     </div>
 </template>
 
@@ -21,4 +23,5 @@
 
 <style lang="sass">
 @import '../sass/global';
+@import '../sass/components/card';
 </style>

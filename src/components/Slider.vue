@@ -2,9 +2,9 @@
 <div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Référence 1</div>
+            <div class="swiper-slide">Référence 2</div>
+            <div class="swiper-slide">Référence 3</div>
     </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -38,5 +38,5 @@
 </script>
 
 <style lang="sass" scoped>
-@import '../sass/slider'
+@import '../sass/components/slider'
 </style>

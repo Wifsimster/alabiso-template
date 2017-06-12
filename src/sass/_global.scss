@@ -1,9 +1,13 @@
-* {
-    box-sizing: border-box;
-}
+@import "../../node_modules/purecss/build/pure-min.css";
+@import "../../node_modules/purecss/build/grids-responsive-min.css";
 
 .app {
     height: 100%;
+
+    .content {
+        margin: 0 auto;
+        max-width: 1280px;
+    }
 }
 
 
@@ -14,4 +18,15 @@
 
 img {
     max-width: 100%;
+    opacity: 0;
+    transition: opacity 1s linear;
+
+    &[lazy=loaded] {
+        opacity: 1;
+    }
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
 }

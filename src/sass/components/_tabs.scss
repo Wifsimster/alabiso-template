@@ -1,0 +1,16 @@
+@import '../colors';
+
+.tabs {
+    margin: 25px 0;
+    width: 100%;
+    a {
+        padding: 15px 40px;
+        margin: 0;
+        color: $blue;
+        background-color: $lightGray;
+        &:hover {
+            color: white;
+            background-color: $blue;
+        }
+    }
+}
