@@ -1,16 +1,17 @@
 <template>
 <div>
-    <h1>Home</h1>
     <slider></slider>
+    <presentation></presentation>
     </div>
 </template>
 
 <script>
     import Slider from '../components/Slider.vue'
+    import Presentation from '../components/HomePresentation.vue'
     export default {
-        components: { Slider },
+        components: { 
+            Slider, 
+            Presentation 
+        },
     }
 </script>
-
-<style lang="sass" scoped>
-</style>

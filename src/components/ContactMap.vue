@@ -1,6 +1,5 @@
 <template>
-<div>
-    <h1>Ingénierie</h1>
+<div class="map">
     </div>
 </template>
 
@@ -10,4 +9,6 @@
     }
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+@import '../sass/components/map.scss'
+</style>

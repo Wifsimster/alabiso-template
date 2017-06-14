@@ -1,30 +1,40 @@
 <template>
 <div class="card">
-    <div class="card-image"><img v-lazy="kohinoor"></div>
+    <div class="card-image" @click="toggle">
+        <slot name="image"></slot>
+    </div>
     <div class="card-content">
-        <div class="card-title">Koh I Noor 
-        <a @click="reveal = true">x</a></div>
-        <div class="card-description">
-            <p>49 Logements à Port Marianne, Rive Gauche à Montpellier.<br><strong>1er Prix Pyramide d'Argent</strong></p>
+        <div class="card-title" @click="toggle">
+            <slot name="title"></slot>
+            <a><i class="material-icons">more_vert</i></a></div>
+        <div class="card-description">            
+            <slot name="description"></slot>
     </div>
     </div>
-    <div class="card-reveal" v-show="reveal">
-        <div class="card-title">Reveal - Koh I Noor</div>
-        <div class="card-description">
-            <p>49 Logements à Port Marianne, Rive Gauche à Montpellier.<br><strong>1er Prix Pyramide d'Argent</strong></p>
+    <transition name="reveal">
+        <div class="card-reveal" v-show="reveal">
+            <div class="card-title" @click="toggle">
+                <slot name="reveal-title"></slot>
+                <a><i class="material-icons">close</i></a></div>
+            <div class="card-description">
+                <slot name="reveal-description"></slot>
     </div>
     </div>
+    </transition>
     </div>
 </template>
 
 <script>
-    import kohinoor from '../assets/kohinoor.jpg'
     export default {
         data() {
             return {
-                kohinoor: kohinoor,
                 reveal: false,
             }
+        },
+        methods: {
+            toggle() {
+                this.reveal = !this.reveal
+            },
         },
     }
 </script>

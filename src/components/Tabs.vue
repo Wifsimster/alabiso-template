@@ -1,10 +1,10 @@
 <template>
 <div class="tabs">
-    <router-link :to="{ path: '/' }">Accueil</router-link>
-    <router-link :to="{ path: '/engineering' }">Ingénierie</router-link>
-    <router-link :to="{ path: '/references' }">Références</router-link>
-    <router-link :to="{ path: '/teams' }">Equipes</router-link>
-    <router-link :to="{ path: '/contact' }">Contact</router-link>
+    <router-link to="/" exact>Accueil</router-link>
+    <router-link to="/engineering" exact>Ingénierie</router-link>
+    <router-link to="/references" exact>Références</router-link>
+    <router-link to="/teams" exact>Equipes</router-link>
+    <router-link to="/contact" exact>Contact</router-link>
     </div>
 </template>
 
