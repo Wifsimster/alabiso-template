@@ -1,8 +1,6 @@
 @import '../colors';
 
-.map {
-    height: 450px;
-    widows: 100%;
-    background-color: $lightGray;
-    border-radius: 3px;
+#map {
+    height: 400px;
+    width: 400px;
 }

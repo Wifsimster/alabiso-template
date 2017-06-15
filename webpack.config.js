@@ -13,7 +13,7 @@ module.exports = {
             {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             {test: /\.vue?$/, loader: 'vue-loader'},
             {test: /\.css$/, loader: 'style-loader!css-loader'},
-            {test: /\.(jpe?g|png)(\?[a-z0-9=\.]+)?$/i, loader: 'url-loader?limit=100000&name=./img/[name].[ext]'},
+            {test: /\.(jpe?g|png)(\?[a-z0-9=\.]+)?$/i, loader: 'url-loader?limit=100000&name=/img/[name].[ext]'},
             {test: /\.(woff(2)?|eot|otf|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'file-loader?name=./fonts/[name].[ext]'},
         ]
     },
