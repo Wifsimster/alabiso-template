@@ -1,54 +1,38 @@
 @import "../../node_modules/purecss/build/pure-min.css";
 @import "../../node_modules/purecss/build/grids-responsive-min.css";
 
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-.app {
-    height: 100%;
-    .wrapper {
-        min-height: 100%;
-        &:after {
-            content: "";
-            display: block;
-            height: 58px;
-        }
-        .container {
-            margin: 0 auto;
-            max-width: 1280px;
-        }
-    }
+.container {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 75px 50px auto 50px;
+  overflow: hidden;
+
+  .content {
+    grid-row: 3;
+    margin: 0 auto;
+    justify-content: center;
+  }
 }
-
-
-.logo {
-    max-width: 300px;
-}
-
 
 img {
-    max-width: 100%;
-    opacity: 0;
-    border: 0;
-    transition: opacity 1s linear;
+  max-width: 100%;
+  opacity: 0;
+  border: 0;
+  transition: opacity 1s linear;
 
-    &[lazy=loaded] {
-        opacity: 1;
-    }
+  &[lazy="loaded"] {
+    opacity: 1;
+  }
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.flex-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    .item {
-
-    }
+  text-decoration: none;
+  cursor: pointer;
 }
