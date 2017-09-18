@@ -1,101 +1,103 @@
 .card {
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: box-shadow 0.25s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+  max-width: 400px;
+  margin: 0.75rem;
+
+  .card-image {
     position: relative;
+    cursor: pointer;
+    display: block;
     overflow: hidden;
-    margin: 0.5rem 0 1rem 0;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: box-shadow .25s;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all 0.3s ease-out;
+    height: 180px;
+    img {
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 
-    max-width: 400px;
-    margin: .75rem;
+  .card-content {
+    padding: 20px;
+    border-radius: 0 0 2px 2px;
 
-    .card-image {   
-        position: relative;
-        cursor: pointer;
-        display: block;
-        overflow: hidden;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        vertical-align: middle;
-        z-index: 1;
-        will-change: opacity, transform;
-        transition: all .3s ease-out;
+    .card-title {
+      line-height: 48px;
+      font-size: 24px;
+      font-weight: 300;
+      color: #212121;
+      cursor: pointer;
+
+      a {
+        float: right;
+        height: 25px;
         img {
-            border-radius: 2px 2px 0 0;
-            position: relative;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 100%;
+          height: inherit;
         }
+      }
     }
 
-    .card-content {
-        padding: 20px;
-        border-radius: 0 0 2px 2px;
+    .card-description {
+      margin: 0;
+      color: inherit;
+      line-height: 2rem;
+    }
+  }
 
-        .card-title {
-            line-height: 48px;
-            font-size: 24px;
-            font-weight: 300;
-            color: #212121;
-            cursor: pointer;
+  .card-reveal {
+    padding: 20px;
+    position: absolute;
+    background-color: #fff;
+    overflow-y: auto;
+    top: 100%;
+    height: calc(100% - 40px);
+    z-index: 1;
+    width: calc(100% - 40px);
+    transform: translateY(-100%);
 
-            a {
-                float: right;
-                height: 25px;
-                img {
-                    height: inherit;
-                }
-            }
+    .card-title {
+      cursor: pointer;
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      color: #212121 !important;
+      a {
+        float: right;
+        height: 25px;
+        img {
+          height: inherit;
         }
-
-        .card-description {
-            margin: 0;
-            color: inherit;
-            line-height: 2rem;
-        }
+      }
     }
 
-    .card-reveal {
-        padding: 20px;
-        position: absolute;
-        background-color: #fff;
-        overflow-y: auto;
-        top: 100%;
-        height: calc(100% - 40px);
-        z-index: 1;
-        width: calc(100% - 40px);
-        transform: translateY(-100%);
-
-        .card-title { 
-            cursor: pointer;
-            display: block;    
-            font-size: 24px;
-            font-weight: 300;
-            color: #212121 !important;     
-            a {
-                float: right;
-                height: 25px;
-                img {
-                    height: inherit;
-                }
-            }
-        }
-
-        .card-description {
-            line-height: 2rem;
-        }
+    .card-description {
+      line-height: 2rem;
     }
+  }
 
-    .reveal-enter-active, .reveal-leave-active {        
-        will-change: opacity, transform;
-        transition: all .3s ease-out;
-    }
-    .reveal-enter, .reveal-leave-to {
-        display: block;
-        transform: translateY(0px);
-    }
+  .reveal-enter-active,
+  .reveal-leave-active {
+    will-change: opacity, transform;
+    transition: all 0.3s ease-out;
+  }
+  .reveal-enter,
+  .reveal-leave-to {
+    display: block;
+    transform: translateY(0px);
+  }
 }

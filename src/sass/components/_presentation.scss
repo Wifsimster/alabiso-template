@@ -1,25 +1,24 @@
 .icon-block {
-    padding: 0 15px;
-    .center {
-        text-align: center;
+  padding: 20px;
+  text-align: justify;
+  .center {
+    text-align: center;
+    padding: 0 0 10px 0;
+  }
+  h2 {
+    margin: 0;
+    i {
+      line-height: 42px;
+      font-size: 42px;
+      padding: 10px 0;
     }
-    h2 {
-        font-size: 3.56rem;
-        line-height: 110%;
-        margin: 1.78rem 0 1.424rem 0;
-        font-weight: 400;
-        i {
-            height: inherit;
-        }
-    }
-    h5 {
-        text-align: center;
-        font-size: 1.64rem;
-        line-height: 110%;
-        margin: 0.82rem 0 0.656rem 0;
-    }
-    .light {
-        font-weight: 300;
-        line-height: 2rem;
-    }
+  }
+  h3 {
+    text-align: center;
+    font-size: 26px;
+  }
+  .light {
+    font-weight: 300;
+    line-height: 2rem;
+  }
 }

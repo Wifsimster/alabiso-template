@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <img v-lazy="logo" class="logo pure-img">
+        <router-link to="/" exact>
+            <img v-lazy="logo" class="logo pure-img">
+        </router-link>
     </div>
 </template>
 

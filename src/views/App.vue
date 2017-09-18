@@ -1,12 +1,10 @@
 <template>
     <div class="container">
-        <!-- <div class="wrapper"> -->
         <com-header></com-header>
         <tabs></tabs>
         <div class="content">
             <router-view></router-view>
         </div>
-        <!-- </div> -->
         <com-footer></com-footer>
     </div>
 </template>

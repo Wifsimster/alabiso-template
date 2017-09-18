@@ -1,26 +1,22 @@
 <template>
-<div>
-    <gmap-map :center="center"
-              :zoom="7"
-              style="width: 500px; height: 300px">
-    </gmap-map>
+    <div>
+        <div id="map"></div>
     </div>
 </template>
 
 <script>
-
-    //    load({key: 'AIzaSyBMJguOJhxaNLbsLAwB57fhWHKaIKR-KW4', v: '3.26'})
-    //    43.6171734,3.822794,17z
-
-    export default {
-        data () {
-            return {
-                center: { lat: 48.8538302, lng: 2.2982161 },
-            }
-        }
+import L from 'leaflet'
+export default {
+    created() {
+        this.$nextTick(() => {
+            let mymap = L.map('map').setView([51.505, -0.09], 13)
+        })
     }
+}
 </script>
 
-<style lang="sass" scoped>
-@import '../sass/components/map.scss'
+<style lang="scss" scoped>
+#map {
+    height: 450px;
+}
 </style>

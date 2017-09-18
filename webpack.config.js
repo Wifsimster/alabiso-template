@@ -1,37 +1,87 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require("path")
+const webpack = require("webpack")
 
 module.exports = {
-    entry: "./src/app.js",
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "build.js",
-        publicPath: "dist",
+  entry: "./src/app.js",
+  output: {
+    path: path.resolve("dist"),
+    publicPath: "dist/",
+    filename: "build.js"
+  },
+  resolve: {
+    alias: {
+      vue: "vue/dist/vue.js"
     },
-    module: {
-        rules: [
-            {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            {test: /\.vue?$/, loader: 'vue-loader'},
-            {test: /\.css$/, loader: 'style-loader!css-loader'},
-            {test: /\.(jpe?g|png)(\?[a-z0-9=\.]+)?$/i, loader: 'url-loader?limit=100000&name=/img/[name].[ext]'},
-            {test: /\.(woff(2)?|eot|otf|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'file-loader?name=./fonts/[name].[ext]'},
-        ]
-    },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        },
-    },
+    modules: [path.join(__dirname, "src"), "node_modules"]
+  },
+  resolveLoader: {
+    moduleExtensions: ["-loader"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: "vue"
+      },
+      {
+        test: /\.js$/,
+        loader: "babel",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.html$/,
+        loader: "vue-html"
+      },
+      {
+        test: /\.scss$/,
+        use: ["style", "css", "sass"]
+      },
+      {
+        test: /\.css$/,
+        use: ["style", "css"]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "url?limit=100000&name=./img/[name].[ext]"
+      },
+      {
+        test: /\.(woff(2)?|eot|otf|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader: "file?name=./fonts/[name].[ext]"
+      },
+      {
+        test: /\.(pdf)$/,
+        loader: "file?name=./documents/[name].[ext]"
+      }
+    ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
+  },
+  performance: {
+    hints: false
+  },
+  devtool: "#eval-source-map"
 }
 
-if(process.env.NODE_ENV === 'production') {
-    module.exports.plugins = [
-        new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: '"production"' }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: { warnings: false }
-        }),
-        new webpack.optimize.OccurenceOrderPlugin()
-    ]
-} else { module.exports.devtool = '#source-map' }
+if (process.env.NODE_ENV === "production") {
+  module.exports.devtool = "#source-map"
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+  ])
+}
