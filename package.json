@@ -16,8 +16,6 @@
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",
-    "gmaps": "^0.4.24",
-    "leaflet": "^1.2.0",
     "node-sass": "^4.5.3",
     "purecss": "^1.0.0",
     "sass-loader": "^6.0.6",
